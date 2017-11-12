@@ -12,29 +12,29 @@ public class ExpressionParserTest {
 
     @Test
     public void ensureCanParseCountAllCommand(){
-        ExpressionParser parser = new ExpressionParser();
+        ExpressionParser parser = ExpressionParser.getInstance();
         Expression expression = parser.parse("count *");
         assertThat( expression, instanceOf( CountExpression.class ) );
     }
 
     @Test
     public void ensureCanParseCountDistinctCommand(){
-        ExpressionParser parser = new ExpressionParser();
+        ExpressionParser parser = ExpressionParser.getInstance();
         Expression expression = parser.parse("count distinct state");
         assertThat( expression, instanceOf( CountDistinctExpression.class ) );
     }
 
     @Test
     public void ensureCanParseFilterCommand(){
-        ExpressionParser parser = new ExpressionParser();
+        ExpressionParser parser = ExpressionParser.getInstance();
         Expression expression = parser.parse("filter name City");
         assertThat( expression, instanceOf( FilterExpression.class ) );
     }
 
     @Test(expected = ParseException.class)
     public void ensureCantParseInvalidCommand(){
-        ExpressionParser parser = new ExpressionParser();
-        Expression expression = parser.parse("add city");
+        ExpressionParser parser = ExpressionParser.getInstance();
+        parser.parse("add city");
     }
 
 }

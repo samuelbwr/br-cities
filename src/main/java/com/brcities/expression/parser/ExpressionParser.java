@@ -14,6 +14,8 @@ import static java.util.stream.Collectors.toMap;
 
 public class ExpressionParser {
 
+    private static ExpressionParser INSTANCE;
+
     private static final Map<String, Function> FIRST_COMMAND = unmodifiableMap( Stream.of(
             commandEntry( "count", CountFactory::getInstance ),
             commandEntry( "filter", FilterFactory::getInstance ) )
@@ -22,6 +24,15 @@ public class ExpressionParser {
     private static AbstractMap.SimpleEntry<String, Function<List<String>, Expression>> commandEntry(
             String key, Function<List<String>, Expression> value) {
         return new AbstractMap.SimpleEntry( key, value );
+    }
+
+    private ExpressionParser() {
+    }
+
+    public static ExpressionParser getInstance(){
+        if(INSTANCE == null)
+            INSTANCE = new ExpressionParser();
+        return INSTANCE;
     }
 
     public Expression parse(String command) {

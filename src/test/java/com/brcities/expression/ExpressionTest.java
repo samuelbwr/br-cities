@@ -39,7 +39,7 @@ public class ExpressionTest {
     public void ensureCanInterpretCountDistinctExpressionByProperty() {
         List<City> list = asList( CITY_ONE, CITY_TWO, CITY_TWO );
         CountDistinctExpression expression = new CountDistinctExpression();
-        expression.setAddOn( new ByProperty("ibge_id", null, new CityFacade()) );
+        expression.setAddOn( new ByProperty("ibge_id", null, CityFacade.getInstance()) );
         Result result = expression.interpret( list );
         assertThat( result.getValue(), equalTo( 2l ) );
     }
@@ -48,7 +48,7 @@ public class ExpressionTest {
     public void ensureCanInterpretFilterExpressionByProperty() {
         List<City> list = asList( CITY_ONE, CITY_TWO, CITY_TWO );
         FilterExpression expression = new FilterExpression();
-        expression.setAddOn( new ByProperty("name", "City 2", new CityFacade()) );
+        expression.setAddOn( new ByProperty("name", "City 2", CityFacade.getInstance()) );
         Result<List> result = expression.interpret( list );
         assertThat( result.getValue().size(), equalTo( 2 ) );
         assertThat( ((City)result.getValue().get(0)).getName(), equalTo( CITY_TWO.getName() ) );
@@ -57,7 +57,7 @@ public class ExpressionTest {
     @Test(expected = NoSuchPropertyException.class)
     public void ensureCantInterpretFilterExpressionByInexistentProperty() {
         FilterExpression expression = new FilterExpression();
-        expression.setAddOn( new ByProperty("test", "text", new CityFacade()) );
+        expression.setAddOn( new ByProperty("test", "text", CityFacade.getInstance()) );
         expression.interpret(asList( CITY_ONE ));
     }
 }

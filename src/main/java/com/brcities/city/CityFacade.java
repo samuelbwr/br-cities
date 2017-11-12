@@ -1,5 +1,7 @@
 package com.brcities.city;
 
+import com.brcities.facades.EntityFacade;
+
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
@@ -10,6 +12,8 @@ import static java.util.Collections.unmodifiableMap;
 import static java.util.stream.Collectors.toMap;
 
 public class CityFacade implements EntityFacade {
+
+    private static CityFacade INSTANCE;
 
     private static final Map<String, Function> CITY_GETTERS = unmodifiableMap( Stream.of(
             cityPropertyEntry( "ibge_id", (city) -> city.getIbgeId().toString() ),
@@ -26,6 +30,15 @@ public class CityFacade implements EntityFacade {
 
     private static SimpleEntry<String, Function<City, String>> cityPropertyEntry(String key, Function<City, String> value) {
         return new SimpleEntry( key, value );
+    }
+
+    private CityFacade() {
+    }
+
+    public static CityFacade getInstance(){
+        if(INSTANCE == null)
+            INSTANCE = new CityFacade();
+        return INSTANCE;
     }
 
     @Override

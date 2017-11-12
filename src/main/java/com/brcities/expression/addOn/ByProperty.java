@@ -1,6 +1,6 @@
 package com.brcities.expression.addOn;
 
-import com.brcities.city.EntityFacade;
+import com.brcities.facades.EntityFacade;
 
 import java.util.stream.Stream;
 

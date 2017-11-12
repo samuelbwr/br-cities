@@ -1,4 +1,4 @@
-package com.brcities.city;
+package com.brcities.facades;
 
 import java.util.Optional;
 import java.util.function.Function;

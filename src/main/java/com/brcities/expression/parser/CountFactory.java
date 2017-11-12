@@ -20,7 +20,7 @@ public class CountFactory {
 
     private static Expression createCountDistinctExpression(List<String> params) {
         CountDistinctExpression expression = new CountDistinctExpression();
-        expression.setAddOn( new ByProperty( params.get( 0 ), params.get( 1 ), new CityFacade() ) );
+        expression.setAddOn( new ByProperty( params.get( 0 ), params.get( 1 ), CityFacade.getInstance() ) );
         return expression;
     }
 }

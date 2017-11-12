@@ -38,7 +38,7 @@ public class City {
     }
 
     public String getCapitalAsString() {
-        return capital ? "true" : "false";
+        return Boolean.toString( capital );
     }
 
     public Double getLat() {
