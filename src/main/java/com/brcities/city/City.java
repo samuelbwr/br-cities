@@ -21,8 +21,8 @@ public class City {
         this.microRegion = microRegion;
     }
 
-    public String getNoAccentName(){
-        return Normalizer.normalize( name, Normalizer.Form.NFC );
+    public String getNoAccentName() {
+        return Normalizer.normalize( name, Normalizer.Form.NFKD ).replaceAll("[^\\p{ASCII}]", "");
     }
 
     public Long getIbgeId() {
@@ -35,6 +35,10 @@ public class City {
 
     public boolean isCapital() {
         return capital;
+    }
+
+    public String getCapitalAsString() {
+        return capital ? "true" : "false";
     }
 
     public Double getLat() {

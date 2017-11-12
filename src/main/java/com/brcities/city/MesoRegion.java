@@ -1,8 +1,8 @@
 package com.brcities.city;
 
 public class MesoRegion {
-    String name;
-    State state;
+    private String name;
+    private State state;
 
     public MesoRegion(String name, State state) {
         this.name = name;
