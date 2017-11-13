@@ -13,14 +13,13 @@ public class CountDistinctExpression extends CountExpression {
 
     @Override
     public Result interpret(List context) {
-        Stream contextAsStream = context.stream();
-        contextAsStream = applyAddOn( contextAsStream );
+        Stream contextAsStream = applyAddOn( context.stream() );
         return new LongResult( contextAsStream.distinct().count() );
     }
 
-    private Stream applyAddOn(Stream contextStream) {
+    public Stream applyAddOn(Stream contextStream) {
         if (addOn != null)
-            contextStream = addOn.run( contextStream );
+            return addOn.run( contextStream );
         return contextStream;
     }
 

@@ -1,34 +1,31 @@
 package com.brcities;
 
-import com.brcities.city.City;
-import com.brcities.city.CityMapper;
+import com.brcities.city.CityDao;
 import com.brcities.expression.parser.ExpressionParser;
 import com.brcities.expression.result.Result;
-import com.brcities.file.File;
-import com.brcities.file.FileReader;
-import com.brcities.file.parser.CsvParser;
-import com.brcities.file.parser.FileParser;
 
 import java.io.FileNotFoundException;
-import java.util.List;
+import java.net.URISyntaxException;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws FileNotFoundException {
-        FileReader reader = new FileReader( File.fromResource( "cidades.csv" ) );
-        FileParser parser = new CsvParser( reader.read(), CityMapper.getInstance() ).skippingHeader();
-        List<City> cities = parser.parse();
+
+    static final String CITIES_FILE = "cidades.csv";
+    static final String EXIT_CODE = "exit";
+
+    public static void main(String[] args) throws FileNotFoundException, URISyntaxException {
+        CityDao cityDao = CityDao.getInstance();
+        cityDao.populateFromResourceFile( CITIES_FILE );
         Scanner scanner = new Scanner( System.in );
         String command;
-        ExpressionParser expressionParser = ExpressionParser.getInstance();
         Result result;
         do {
-            System.out.println( "Enter a command or exit with 'exit'" );
+            System.out.println( "Enter a command or exit with '"+EXIT_CODE+"'" );
             command = scanner.nextLine();
-            if (!"exit".equals( command )) {
-                result = expressionParser.parse( command ).interpret( cities );
-                System.out.println(result);
+            if (!EXIT_CODE.equals( command )) {
+                result = ExpressionParser.getInstance().parse( command ).interpret( cityDao.getData() );
+                System.out.println( result );
             }
-        } while (!"exit".equals( command ));
+        } while (!EXIT_CODE.equals( command ));
     }
 }

@@ -14,14 +14,13 @@ public class FilterExpression implements Expression {
 
     @Override
     public Result interpret(List context) {
-        Stream contextAsStream = context.stream();
-        contextAsStream = applyAddOn( contextAsStream );
+        Stream contextAsStream = applyAddOn( context.stream() );
         return new ListResult( (List) contextAsStream.collect( Collectors.toList() ) );
     }
 
-    private Stream applyAddOn(Stream contextAsStream) {
+    public Stream applyAddOn(Stream contextAsStream) {
         if (addOn != null)
-            contextAsStream = addOn.run( contextAsStream );
+            return addOn.run( contextAsStream );
         return contextAsStream;
     }
 
