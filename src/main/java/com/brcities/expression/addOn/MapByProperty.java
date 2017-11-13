@@ -6,8 +6,8 @@ import java.util.stream.Stream;
 
 public class MapByProperty implements AddOn{
 
-    private String property;
-    private EntityFacade entityFacade;
+    private final String property;
+    private final EntityFacade entityFacade;
 
     public MapByProperty(String property, EntityFacade entityFacade) {
         this.property = property;

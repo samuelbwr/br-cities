@@ -11,7 +11,7 @@ public class CountExpression implements Expression {
     }
 
     @Override
-    public Result interpret(List context) {
+    public Result interpret(final List context) {
         return new LongResult(context.size());
     }
 }

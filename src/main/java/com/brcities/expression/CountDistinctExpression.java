@@ -12,18 +12,18 @@ public class CountDistinctExpression extends CountExpression {
     private AddOn addOn;
 
     @Override
-    public Result interpret(List context) {
+    public Result interpret(final List context) {
         Stream contextAsStream = applyAddOn( context.stream() );
         return new LongResult( contextAsStream.distinct().count() );
     }
 
-    public Stream applyAddOn(Stream contextStream) {
+    public Stream applyAddOn(final Stream contextStream) {
         if (addOn != null)
             return addOn.run( contextStream );
         return contextStream;
     }
 
-    public void setAddOn(AddOn addOn) {
+    public void setAddOn(final AddOn addOn) {
         this.addOn = addOn;
     }
 }

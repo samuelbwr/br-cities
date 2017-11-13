@@ -20,15 +20,15 @@ public class FileParserTest {
 
     @Test
     public void ensureCanParseCity() throws URISyntaxException, FileNotFoundException {
-        FileParser fileParser = new CsvParser( createReader(), CityMapper.getInstance() ).skippingHeader();
-        List<City> cities = fileParser.parse();
+        FileParser fileParser = new CsvParser( CityMapper.getInstance() ).skippingHeader();
+        List<City> cities = fileParser.parse( createReader() );
         assertThat( cities.size(), equalTo( 3 ) );
     }
 
     @Test(expected = NumberFormatException.class)
     public void ensureCanKeepTheHeader() throws URISyntaxException, FileNotFoundException {
-        FileParser fileParser = new CsvParser( createReader(), CityMapper.getInstance() );
-        fileParser.parse();
+        FileParser fileParser = new CsvParser( CityMapper.getInstance() );
+        fileParser.parse( createReader() );
     }
 
     private BufferedReader createReader() throws URISyntaxException, FileNotFoundException {

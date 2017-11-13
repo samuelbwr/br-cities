@@ -35,17 +35,17 @@ public class ExpressionParser {
         return INSTANCE;
     }
 
-    public Expression parse(String command) {
+    public Expression parse(final String command) {
         List<String> splittedCommand = toList(command.split( " " ));
-        Function commandFunction = FIRST_COMMAND.get( splittedCommand.get( 0 ) );
+        final Function commandFunction = FIRST_COMMAND.get( splittedCommand.get( 0 ) );
         if(commandFunction == null)
             throw new ParseException("Could not parse: command '"+splittedCommand.get( 0 )+"' not found");
         splittedCommand.remove( 0 );
         return (Expression) commandFunction.apply(splittedCommand);
     }
 
-    private List<String> toList(String[] array) {
-        List<String> list = new ArrayList<>();
+    private List<String> toList(final String[] array) {
+        final List<String> list = new ArrayList<>();
         for (String item : array)
             list.add( item );
         return list;

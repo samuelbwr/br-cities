@@ -2,7 +2,7 @@ package com.brcities.city;
 
 import org.junit.Test;
 
-import static com.brcities.CityStub.*;
+import static com.brcities.city.CityStub.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 

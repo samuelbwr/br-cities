@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CountFactory {
 
-    public static Expression getInstance(List<String> params) {
+    public static Expression getInstance(final List<String> params) {
         if ("*".equals( params.get( 0 ) ))
             return new CountExpression();
         else {
@@ -18,7 +18,7 @@ public class CountFactory {
         }
     }
 
-    private static Expression createCountDistinctExpression(List<String> params) {
+    private static Expression createCountDistinctExpression(final List<String> params) {
         CountDistinctExpression expression = new CountDistinctExpression();
         expression.setAddOn( new MapByProperty( params.get( 1 ), CityFacade.getInstance() ) );
         return expression;

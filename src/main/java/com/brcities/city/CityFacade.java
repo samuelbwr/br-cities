@@ -42,7 +42,7 @@ public class CityFacade implements EntityFacade {
     }
 
     @Override
-    public Optional<Function> getPropertyAsFunction(String property) {
+    public Optional<Function> getPropertyAsFunction(final String property) {
         return Optional.ofNullable( CITY_GETTERS.get( property ) );
     }
 }

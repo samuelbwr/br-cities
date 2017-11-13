@@ -6,9 +6,9 @@ import java.util.stream.Stream;
 
 public class FilterByProperty implements AddOn {
 
-    private String property;
-    private String value;
-    private EntityFacade entityFacade;
+    private final String property;
+    private final String value;
+    private final EntityFacade entityFacade;
 
     public FilterByProperty(String property, String value, EntityFacade entityFacade) {
         this.property = property;

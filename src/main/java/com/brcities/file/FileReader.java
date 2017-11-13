@@ -7,9 +7,9 @@ import java.nio.file.Path;
 
 public class FileReader {
 
-    private Path path;
+    private final Path path;
 
-    public FileReader(Path path) {
+    public FileReader(final Path path) {
         this.path = path;
     }
 

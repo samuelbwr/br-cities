@@ -13,18 +13,18 @@ public class FilterExpression implements Expression {
     private AddOn addOn;
 
     @Override
-    public Result interpret(List context) {
+    public Result interpret(final List context) {
         Stream contextAsStream = applyAddOn( context.stream() );
         return new ListResult( (List) contextAsStream.collect( Collectors.toList() ) );
     }
 
-    public Stream applyAddOn(Stream contextAsStream) {
+    public Stream applyAddOn(final Stream contextAsStream) {
         if (addOn != null)
             return addOn.run( contextAsStream );
         return contextAsStream;
     }
 
-    public void setAddOn(AddOn addOn) {
+    public void setAddOn(final AddOn addOn) {
         this.addOn = addOn;
     }
 }

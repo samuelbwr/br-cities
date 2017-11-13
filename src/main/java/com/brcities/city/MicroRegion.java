@@ -1,8 +1,8 @@
 package com.brcities.city;
 
 public class MicroRegion {
-    String name;
-    MesoRegion mesoRegion;
+    private final String name;
+    private final MesoRegion mesoRegion;
 
     public MicroRegion(String name, MesoRegion mesoRegion) {
         this.name = name;

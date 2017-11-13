@@ -1,5 +1,6 @@
 package com.brcities.file.parser;
 
+import com.brcities.file.FileReader;
 import com.brcities.mappers.EntityMapper;
 
 import java.io.BufferedReader;
@@ -8,18 +9,16 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CsvParser<T> implements FileParser<T> {
-    private BufferedReader reader;
     private boolean skipHeader;
     private String separator = ",";
-    private EntityMapper<T> mapper;
+    private final EntityMapper<T> mapper;
 
-    public CsvParser(BufferedReader reader, EntityMapper mapper) {
-        this.reader = reader;
+    public CsvParser(final EntityMapper mapper) {
         this.mapper = mapper;
     }
 
     @Override
-    public List<T> parse() {
+    public List<T> parse(BufferedReader reader) {
         Stream<String> lines = reader.lines();
         if (skipHeader)
             lines = lines.skip( 1 );
@@ -32,7 +31,7 @@ public class CsvParser<T> implements FileParser<T> {
         return this;
     }
 
-    public CsvParser separator(String separator){
+    public CsvParser separator(final String separator){
         this.separator = separator;
         return this;
     }

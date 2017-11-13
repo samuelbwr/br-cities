@@ -9,11 +9,11 @@ import java.util.List;
 
 public class FilterFactory {
 
-    public static Expression getInstance(List<String> params) {
+    public static Expression getInstance(final List<String> params) {
         return createFilterByPropertyExpression( params );
     }
 
-    private static Expression createFilterByPropertyExpression(List<String> params) {
+    private static Expression createFilterByPropertyExpression(final List<String> params) {
         FilterExpression expression = new FilterExpression();
         expression.setAddOn( new FilterByProperty( params.get( 0 ), params.get( 1 ), CityFacade.getInstance() ) );
         return expression;

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface Expression {
 
-    Result interpret(List context);
+    Result interpret(final List context);
 }

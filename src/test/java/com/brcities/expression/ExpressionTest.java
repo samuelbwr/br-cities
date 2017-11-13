@@ -11,8 +11,8 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.brcities.CityStub.CITY_ONE;
-import static com.brcities.CityStub.CITY_TWO;
+import static com.brcities.city.CityStub.CITY_ONE;
+import static com.brcities.city.CityStub.CITY_TWO;
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;

@@ -26,7 +26,7 @@ public class CityMapper implements EntityMapper<City> {
     }
 
     @Override
-    public City fromOrderedStringArray(String[] values) {
+    public City fromOrderedStringArray(final String[] values) {
         City city = new City();
         city.setIbgeId( Long.valueOf( values[ 0 ] ) );
         city.setName( values[ 2 ] );
@@ -38,15 +38,15 @@ public class CityMapper implements EntityMapper<City> {
         return city;
     }
 
-    private MicroRegion getMicroRegion(String[] values) {
+    private MicroRegion getMicroRegion(final String[] values) {
         return microRegions.computeIfAbsent( values[ 8 ], n -> new MicroRegion( n, getMesoRegion( values ) ) );
     }
 
-    private MesoRegion getMesoRegion(String[] values) {
+    private MesoRegion getMesoRegion(final String[] values) {
         return mesoRegions.computeIfAbsent( values[ 9 ], n -> new MesoRegion( n, getState( values[ 1 ] ) ) );
     }
 
-    private State getState(String value) {
+    private State getState(final String value) {
         return states.computeIfAbsent( value, State::new );
     }
 }

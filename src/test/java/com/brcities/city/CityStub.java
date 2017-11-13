@@ -1,4 +1,4 @@
-package com.brcities;
+package com.brcities.city;
 
 import com.brcities.city.City;
 import com.brcities.city.MesoRegion;
