@@ -1,4 +1,4 @@
-package com.brcities.dataSource;
+package com.brcities.datasource;
 
 import com.brcities.file.parser.FileParser;
 

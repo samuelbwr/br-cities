@@ -2,7 +2,7 @@ package com.brcities.city;
 
 import static com.brcities.city.CityStub.*;
 
-import com.brcities.expression.addOn.NoSuchPropertyException;
+import com.brcities.expression.addon.NoSuchPropertyException;
 import org.junit.Test;
 
 import java.util.function.Function;

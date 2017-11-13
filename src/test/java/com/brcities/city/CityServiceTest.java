@@ -11,7 +11,7 @@ import java.net.URISyntaxException;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
-public class CityServiceIT {
+public class CityServiceTest {
 
     @Test
     public void ensureCanExecuteCountAllCommand() throws URISyntaxException {

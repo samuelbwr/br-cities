@@ -1,14 +1,11 @@
 package com.brcities.city;
 
-import com.brcities.dataSource.DataSource;
-import com.brcities.file.FileReaderTest;
+import com.brcities.datasource.DataSource;
 import com.brcities.file.parser.CsvParser;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;

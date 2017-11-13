@@ -1,4 +1,4 @@
-package com.brcities.expression.addOn;
+package com.brcities.expression.addon;
 
 import com.brcities.facades.EntityFacade;
 

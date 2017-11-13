@@ -3,7 +3,8 @@ package com.brcities;
 import com.brcities.city.CityDataSource;
 import com.brcities.city.CityMapper;
 import com.brcities.city.CityService;
-import com.brcities.dataSource.DataSource;
+import com.brcities.city.model.City;
+import com.brcities.datasource.DataSource;
 import com.brcities.file.parser.CsvParser;
 import com.brcities.file.parser.FileParser;
 
@@ -42,7 +43,7 @@ public class App {
     }
 
     private static Path getFilePath(final String filePath) throws URISyntaxException {
-        final ClassLoader classLoader = App.class.getClassLoader();
+        final ClassLoader classLoader = City.class.getClassLoader();
         return Paths.get( classLoader.getResource( filePath ).toURI() );
     }
 }

@@ -1,4 +1,4 @@
-package com.brcities.expression.addOn;
+package com.brcities.expression.addon;
 
 import java.util.stream.Stream;
 

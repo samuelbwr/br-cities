@@ -1,7 +1,7 @@
 package com.brcities.expression.result;
 
 public class LongResult implements Result<Long> {
-    long value;
+    private long value;
 
     public LongResult(long value) {
         this.value = value;
@@ -14,7 +14,7 @@ public class LongResult implements Result<Long> {
 
     @Override
     public String toString() {
-        return  String.valueOf( value );
+        return String.valueOf( value );
     }
 
 }

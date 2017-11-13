@@ -4,7 +4,7 @@ import com.brcities.city.CityFacade;
 import com.brcities.expression.CountDistinctExpression;
 import com.brcities.expression.CountExpression;
 import com.brcities.expression.Expression;
-import com.brcities.expression.addOn.MapByProperty;
+import com.brcities.expression.addon.MapByProperty;
 
 import java.util.List;
 

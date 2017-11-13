@@ -1,7 +1,7 @@
 package com.brcities.city;
 
 import com.brcities.city.model.City;
-import com.brcities.dataSource.DataSource;
+import com.brcities.datasource.DataSource;
 import com.brcities.expression.Expression;
 import com.brcities.expression.parser.ExpressionParser;
 import com.brcities.expression.result.Result;

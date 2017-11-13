@@ -1,4 +1,4 @@
-package com.brcities.expression.addOn;
+package com.brcities.expression.addon;
 
 public class NoSuchPropertyException extends RuntimeException {
     public NoSuchPropertyException() {

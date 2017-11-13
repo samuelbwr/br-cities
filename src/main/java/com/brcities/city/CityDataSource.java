@@ -1,7 +1,7 @@
 package com.brcities.city;
 
 import com.brcities.city.model.City;
-import com.brcities.dataSource.DataSource;
+import com.brcities.datasource.DataSource;
 import com.brcities.file.FileReader;
 import com.brcities.file.parser.FileParser;
 

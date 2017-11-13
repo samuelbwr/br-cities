@@ -4,7 +4,7 @@ import com.brcities.city.model.City;
 import com.brcities.city.model.MesoRegion;
 import com.brcities.city.model.MicroRegion;
 import com.brcities.city.model.State;
-import com.brcities.dataSource.DataSource;
+import com.brcities.datasource.DataSource;
 import com.brcities.file.FileReaderTest;
 import com.brcities.file.parser.CsvParser;
 

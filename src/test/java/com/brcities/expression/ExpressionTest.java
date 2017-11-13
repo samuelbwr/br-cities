@@ -2,9 +2,9 @@ package com.brcities.expression;
 
 import com.brcities.city.model.City;
 import com.brcities.city.CityFacade;
-import com.brcities.expression.addOn.FilterByProperty;
-import com.brcities.expression.addOn.MapByProperty;
-import com.brcities.expression.addOn.NoSuchPropertyException;
+import com.brcities.expression.addon.FilterByProperty;
+import com.brcities.expression.addon.MapByProperty;
+import com.brcities.expression.addon.NoSuchPropertyException;
 import com.brcities.expression.result.Result;
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class ExpressionTest {
 
     @Test
     public void ensureCanInterpretCountExpression() {
-        List<Integer> list = Arrays.asList( 1, 2 );
+        List<Integer> list = asList( 1, 2 );
         Expression expression = new CountExpression();
         Result result = expression.interpret( list );
         assertThat( result.getValue(), equalTo( 2l ) );
@@ -29,7 +29,7 @@ public class ExpressionTest {
 
     @Test
     public void ensureCanInterpretCountDistinctExpression() {
-        List<Integer> list = Arrays.asList( 1, 2, 2 );
+        List<Integer> list = asList( 1, 2, 2 );
         Expression expression = new CountDistinctExpression();
         Result result = expression.interpret( list );
         assertThat( result.getValue(), equalTo( 2l ) );
