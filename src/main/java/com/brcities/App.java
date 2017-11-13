@@ -17,26 +17,25 @@ public class App {
     private static final String EXIT_CODE = "exit";
 
     public static void main(String[] args) throws FileNotFoundException, URISyntaxException {
-        App app = new App();
-        final CityService cityService = new CityService( app.createDataSource() );
+        final CityService cityService = new CityService( createDataSource() );
         final Scanner scanner = new Scanner( System.in );
         String command;
         do {
             System.out.println( "Enter a command or exit with '" + EXIT_CODE + "'" );
             command = scanner.nextLine();
-            if (!app.isExitCode( command ))
+            if (!isExitCode( command ))
                 System.out.println( cityService.runCommand( command ) );
-        } while (!app.isExitCode( command ));
+        } while (!isExitCode( command ));
     }
 
-    private DataSource createDataSource() throws FileNotFoundException, URISyntaxException {
+    private static DataSource createDataSource() throws FileNotFoundException, URISyntaxException {
         final DataSource dataSource = CityDataSource.getInstance();
         final FileParser fileParser = new CsvParser( CityMapper.getInstance() ).skippingHeader();
         dataSource.populateFromFile( CITIES_FILE, fileParser );
         return dataSource;
     }
 
-    private boolean isExitCode(final String command) {
+    private static boolean isExitCode(final String command) {
         return EXIT_CODE.equals( command );
     }
 

@@ -5,12 +5,9 @@ import com.brcities.city.model.MesoRegion;
 import com.brcities.city.model.MicroRegion;
 import com.brcities.city.model.State;
 import com.brcities.datasource.DataSource;
-import com.brcities.file.FileReaderTest;
 import com.brcities.file.parser.CsvParser;
 
 import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public interface CityStub {
 
@@ -18,11 +15,11 @@ public interface CityStub {
 
     MesoRegion MESO_REGION = new MesoRegion( "MesoRegion", STATE );
 
-    MicroRegion MICRO_REGION = new MicroRegion( "MicroRegion", MESO_REGION  );
+    MicroRegion MICRO_REGION = new MicroRegion( "MicroRegion", MESO_REGION );
 
     City CITY_ONE = new City( 1l, "City 1", true, 2.3, 3.4, "City one", null ),
             CITY_TWO = new City( 2l, "City 2", true, 1.3, 2.4, "City two", null ),
-    FULL_CITY = new City( 1l, "Full City", true, -4.32, 5.21, "Full City name", MICRO_REGION );
+            FULL_CITY = new City( 1l, "Full City", true, -4.32, 5.21, "Full City name", MICRO_REGION );
 
     String CITIES_FILE = "/small-cidades.csv";
 

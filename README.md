@@ -1,4 +1,4 @@
-# Brazilian Cities ![Codacy Badge](https://api.codacy.com/project/badge/Grade/982ae1b3088742c992cb9c54c616a040)
+# Brazilian Cities
 
 Simple project to query for brazilian cities coming from a CSV file (located on Resoures).
 
@@ -29,7 +29,8 @@ The possible properties are
  - mesoregion
 
 
-Code developed only with:
+Code developed with:
  - Java 8
  - Maven
  - JUnit
+ - Love
