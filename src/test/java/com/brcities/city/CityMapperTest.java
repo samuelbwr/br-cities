@@ -1,34 +1,23 @@
 package com.brcities.city;
+
+import com.brcities.mappers.CityMapper;
+import org.junit.Test;
+
 import static com.brcities.CityStub.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
-import org.junit.Test;
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class CityMapperTest {
 
     @Test
-    public void ensureCanCreateInstanceFromMap(){
-        Map<String, String> values = new HashMap<>(  );
-        values.put( "ibge_id",  "1" );
-        values.put( "name",  "Full City" );
-        values.put( "mesoregion", "MesoRegion");
-        values.put( "microregion", "MicroRegion");
-        values.put( "uf", "SC");
-        values.put( "capital", "false");
-        values.put( "lat", "-4.32");
-        values.put( "lon", "5.21");
-        values.put( "alternative_names", "Full City name");
-        values.put( "no_accents", "Full City");
-        EntityMapper mapper = CityMapper.getInstance();
-        City city = mapper.fromMap(values);
+    public void ensureCanCreateInstanceFromMap() {
+        String[] values = { "1", "SC", "Full City", "false","5.21","-4.32","Full City","Full City name" ,"MicroRegion", "MesoRegion" };
+        CityMapper mapper = CityMapper.getInstance();
+        City city = mapper.fromOrderedStringArray( values );
         assertCity( city );
     }
 
-    private void assertCity(City city){
+    private void assertCity(City city) {
         assertThat( city.getIbgeId(), equalTo( FULL_CITY.getIbgeId() ) );
         assertThat( city.getMicroRegion().getMesoRegion().getState().getAbbreviation(), equalTo( STATE.getAbbreviation() ) );
         assertThat( city.getMicroRegion().getMesoRegion().getName(), equalTo( MESO_REGION.getName() ) );

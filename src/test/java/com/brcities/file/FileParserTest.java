@@ -1,25 +1,42 @@
 package com.brcities.file;
 
 import com.brcities.city.City;
+import com.brcities.file.parser.CsvParser;
+import com.brcities.file.parser.FileParser;
+import com.brcities.mappers.CityMapper;
+import static org.hamcrest.CoreMatchers.equalTo;
 import org.junit.Test;
 
-import static org.junit.Assert.assertNotNull;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.net.URISyntaxException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
+import static org.junit.Assert.assertThat;
 
 public class FileParserTest {
 
     @Test
-    public void ensureCanParse() {
-        String csvRow = "1,SC,Full City,false,-4.32,5.21,Full City,Full City name,MicroRegion,MesoRegion";
-        FileParser fileParser = new CsvFileParser( new CityMapper(), false );
-        City city = fileParser.parse( csvRow );
-        assertNotNull( city );
+    public void ensureCanParseCity() throws URISyntaxException, FileNotFoundException {
+        FileParser fileParser = new CsvParser( createReader(), CityMapper.getInstance() ).skippingHeader();
+        List<City> cities = fileParser.parse();
+        assertThat( cities.size(), equalTo( 3 ) );
     }
 
-    @Test(expected = FileParseException.class)
-    public void ensureCanParse() {
-        String csvRow = "1SC,Full City,false,-4.32,5.21,Full City,Full City name,MicroRegion,MesoRegion";
-        FileParser fileParser = new CsvFileParser( new CityMapper(), false );
-        fileParser.parse( csvRow );
+    @Test(expected = NumberFormatException.class)
+    public void ensureThrowErrorIfNotRemoveHeader() throws URISyntaxException, FileNotFoundException {
+        FileParser fileParser = new CsvParser( createReader(), CityMapper.getInstance() );
+        fileParser.parse();
     }
 
+    private BufferedReader createReader() throws URISyntaxException, FileNotFoundException {
+        return new FileReader( getFilePath( "small-cidades.csv" ) ).read();
+    }
+
+    private Path getFilePath(String filePath) throws URISyntaxException {
+        ClassLoader classLoader = FileReaderTest.class.getClassLoader();
+        return Paths.get( classLoader.getResource( filePath ).toURI() );
+    }
 }

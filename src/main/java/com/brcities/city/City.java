@@ -11,6 +11,9 @@ public class City {
     private String alternativeName;
     private MicroRegion microRegion;
 
+    public City() {
+    }
+
     public City(Long ibgeId, String name, boolean capital, Double lat, Double lon, String alternativeName, MicroRegion microRegion) {
         this.ibgeId = ibgeId;
         this.name = name;
@@ -55,5 +58,33 @@ public class City {
 
     public MicroRegion getMicroRegion() {
         return microRegion;
+    }
+
+    public void setIbgeId(Long ibgeId) {
+        this.ibgeId = ibgeId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCapital(boolean capital) {
+        this.capital = capital;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public void setLon(Double lon) {
+        this.lon = lon;
+    }
+
+    public void setAlternativeName(String alternativeName) {
+        this.alternativeName = alternativeName;
+    }
+
+    public void setMicroRegion(MicroRegion microRegion) {
+        this.microRegion = microRegion;
     }
 }
