@@ -1,14 +1,13 @@
 package com.brcities.expression;
 
-import com.brcities.city.model.City;
 import com.brcities.city.CityFacade;
+import com.brcities.city.model.City;
 import com.brcities.expression.addon.FilterByProperty;
 import com.brcities.expression.addon.MapByProperty;
 import com.brcities.expression.addon.NoSuchPropertyException;
 import com.brcities.expression.result.Result;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static com.brcities.city.CityStub.CITY_ONE;

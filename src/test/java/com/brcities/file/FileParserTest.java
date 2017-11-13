@@ -1,19 +1,18 @@
 package com.brcities.file;
 
+import com.brcities.city.CityMapper;
+import com.brcities.city.CityStub;
 import com.brcities.city.model.City;
 import com.brcities.file.parser.CsvParser;
 import com.brcities.file.parser.FileParser;
-import com.brcities.city.CityMapper;
-import static org.hamcrest.CoreMatchers.equalTo;
 import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 public class FileParserTest {
@@ -32,11 +31,6 @@ public class FileParserTest {
     }
 
     private BufferedReader createReader() throws URISyntaxException, FileNotFoundException {
-        return new FileReader( getFilePath( "small-cidades.csv" ) ).read();
-    }
-
-    private Path getFilePath(String filePath) throws URISyntaxException {
-        ClassLoader classLoader = FileReaderTest.class.getClassLoader();
-        return Paths.get( classLoader.getResource( filePath ).toURI() );
+        return new FileReader( CityStub.CITIES_FILE ).read();
     }
 }

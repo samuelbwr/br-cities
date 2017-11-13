@@ -15,7 +15,7 @@ public class CityDataSourceTest {
     @Test
     public void ensureCanPopulateDataSource() throws URISyntaxException, FileNotFoundException {
         DataSource dataSource = CityDataSource.getInstance();
-        dataSource.populateFromFile( CityStub.getCitiesFilePath(),
+        dataSource.populateFromFile( CityStub.CITIES_FILE,
                 new CsvParser( CityMapper.getInstance() ).skippingHeader() );
         assertThat( dataSource.getData().size(), equalTo( 3 ) );
     }

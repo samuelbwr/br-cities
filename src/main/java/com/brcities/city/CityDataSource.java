@@ -5,7 +5,6 @@ import com.brcities.datasource.DataSource;
 import com.brcities.file.FileReader;
 import com.brcities.file.parser.FileParser;
 
-import java.nio.file.Path;
 import java.util.List;
 
 public class CityDataSource implements DataSource<City> {
@@ -24,7 +23,7 @@ public class CityDataSource implements DataSource<City> {
     }
 
     @Override
-    public void populateFromFile(final Path path, final FileParser<City> parser) {
+    public void populateFromFile(final String path, final FileParser<City> parser) {
         FileReader reader = new FileReader( path );
         this.cities = parser.parse( reader.read() );
     }
