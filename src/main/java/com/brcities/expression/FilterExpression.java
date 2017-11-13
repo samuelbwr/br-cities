@@ -21,7 +21,7 @@ public class FilterExpression implements Expression {
 
     private Stream applyAddOn(Stream contextAsStream) {
         if (addOn != null)
-            contextAsStream = addOn.filter( contextAsStream );
+            contextAsStream = addOn.run( contextAsStream );
         return contextAsStream;
     }
 

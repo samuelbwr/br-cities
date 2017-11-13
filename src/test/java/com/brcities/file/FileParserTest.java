@@ -3,7 +3,7 @@ package com.brcities.file;
 import com.brcities.city.City;
 import com.brcities.file.parser.CsvParser;
 import com.brcities.file.parser.FileParser;
-import com.brcities.mappers.CityMapper;
+import com.brcities.city.CityMapper;
 import static org.hamcrest.CoreMatchers.equalTo;
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class FileParserTest {
     }
 
     @Test(expected = NumberFormatException.class)
-    public void ensureThrowErrorIfNotRemoveHeader() throws URISyntaxException, FileNotFoundException {
+    public void ensureCanKeepTheHeader() throws URISyntaxException, FileNotFoundException {
         FileParser fileParser = new CsvParser( createReader(), CityMapper.getInstance() );
         fileParser.parse();
     }

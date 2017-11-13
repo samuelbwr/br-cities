@@ -17,7 +17,10 @@ public class ListResult<T> implements Result<List<T>>{
     @Override
     public String toString() {
         StringBuilder valueInString = new StringBuilder();
-        value.forEach( valueInString::append );
+        for(T item : value) {
+            valueInString.append( item.toString() );
+            valueInString.append( "\n" );
+        }
         return valueInString.toString();
     }
 

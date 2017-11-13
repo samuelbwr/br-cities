@@ -20,6 +20,4 @@ public class FileReader {
             throw new FileNotFoundException();
         }
     }
-
-
 }

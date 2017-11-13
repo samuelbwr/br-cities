@@ -20,7 +20,7 @@ public class CountDistinctExpression extends CountExpression {
 
     private Stream applyAddOn(Stream contextStream) {
         if (addOn != null)
-            contextStream = addOn.map( contextStream );
+            contextStream = addOn.run( contextStream );
         return contextStream;
     }
 

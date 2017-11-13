@@ -1,6 +1,5 @@
 package com.brcities.city;
 
-import com.brcities.mappers.CityMapper;
 import org.junit.Test;
 
 import static com.brcities.CityStub.*;

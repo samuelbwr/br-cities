@@ -1,9 +1,6 @@
-package com.brcities.mappers;
+package com.brcities.city;
 
-import com.brcities.city.City;
-import com.brcities.city.MesoRegion;
-import com.brcities.city.MicroRegion;
-import com.brcities.city.State;
+import com.brcities.mappers.EntityMapper;
 
 import java.util.HashMap;
 import java.util.Map;

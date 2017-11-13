@@ -4,14 +4,14 @@ import com.brcities.city.CityFacade;
 import com.brcities.expression.CountDistinctExpression;
 import com.brcities.expression.CountExpression;
 import com.brcities.expression.Expression;
-import com.brcities.expression.addOn.ByProperty;
+import com.brcities.expression.addOn.MapByProperty;
 
 import java.util.List;
 
 public class CountFactory {
 
-    public static Expression getInstance(List<String> params){
-        if("*".equals( params.get( 0 )))
+    public static Expression getInstance(List<String> params) {
+        if ("*".equals( params.get( 0 ) ))
             return new CountExpression();
         else {
             return createCountDistinctExpression( params );
@@ -20,7 +20,7 @@ public class CountFactory {
 
     private static Expression createCountDistinctExpression(List<String> params) {
         CountDistinctExpression expression = new CountDistinctExpression();
-        expression.setAddOn( new ByProperty( params.get( 0 ), params.get( 1 ), CityFacade.getInstance() ) );
+        expression.setAddOn( new MapByProperty( params.get( 1 ), CityFacade.getInstance() ) );
         return expression;
     }
 }

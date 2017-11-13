@@ -87,4 +87,18 @@ public class City {
     public void setMicroRegion(MicroRegion microRegion) {
         this.microRegion = microRegion;
     }
+
+    @Override
+    public String toString() {
+        return "ibgeId=" + ibgeId +
+                ", name='" + name + '\'' +
+                ", capital=" + capital +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                ", noAccentName='" + getNoAccentName() + '\'' +
+                ", alternativeName='" + alternativeName + '\'' +
+                ", microRegion=" + microRegion.getName() +
+                ", mesoRegion=" + microRegion.getMesoRegion().getName() +
+                ", uf=" + microRegion.getMesoRegion().getState().getAbbreviation();
+    }
 }
