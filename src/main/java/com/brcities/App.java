@@ -4,7 +4,6 @@ import com.brcities.city.CityDataSource;
 import com.brcities.city.CityMapper;
 import com.brcities.city.CityService;
 import com.brcities.dataSource.DataSource;
-import com.brcities.expression.Expression;
 import com.brcities.file.parser.CsvParser;
 import com.brcities.file.parser.FileParser;
 

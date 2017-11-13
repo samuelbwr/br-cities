@@ -5,7 +5,7 @@ Simple project to query for brazilian cities coming from a CSV file (located on 
 To run:
 ```
 mvn clean install
-java -jar target/br-query-1.0-jar-with-dependencies.jar 
+java -jar target/brCities-1.0-SNAPSHOT-jar-with-dependencies.jar 
 ```
 
 To interact with you can use the following commands:
