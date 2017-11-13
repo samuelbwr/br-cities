@@ -1,6 +1,6 @@
 package com.brcities.file;
 
-import com.brcities.city.City;
+import com.brcities.city.model.City;
 import com.brcities.file.parser.CsvParser;
 import com.brcities.file.parser.FileParser;
 import com.brcities.city.CityMapper;

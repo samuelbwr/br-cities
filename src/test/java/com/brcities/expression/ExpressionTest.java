@@ -1,6 +1,6 @@
 package com.brcities.expression;
 
-import com.brcities.city.City;
+import com.brcities.city.model.City;
 import com.brcities.city.CityFacade;
 import com.brcities.expression.addOn.FilterByProperty;
 import com.brcities.expression.addOn.MapByProperty;

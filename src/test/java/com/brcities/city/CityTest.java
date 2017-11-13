@@ -1,5 +1,6 @@
 package com.brcities.city;
 
+import com.brcities.city.model.City;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;

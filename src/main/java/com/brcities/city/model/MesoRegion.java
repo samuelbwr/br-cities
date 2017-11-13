@@ -1,4 +1,4 @@
-package com.brcities.city;
+package com.brcities.city.model;
 
 public class MesoRegion {
     private final String name;

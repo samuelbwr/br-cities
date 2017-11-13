@@ -1,5 +1,6 @@
 package com.brcities.city;
 
+import com.brcities.city.model.City;
 import org.junit.Test;
 
 import static com.brcities.city.CityStub.*;
@@ -10,7 +11,7 @@ public class CityMapperTest {
 
     @Test
     public void ensureCanCreateInstanceFromMap() {
-        String[] values = { "1", "SC", "Full City", "false","5.21","-4.32","Full City","Full City name" ,"MicroRegion", "MesoRegion" };
+        String[] values = { "1", "SC", "Full City", "true","5.21","-4.32","Full City","Full City name" ,"MicroRegion", "MesoRegion" };
         CityMapper mapper = CityMapper.getInstance();
         City city = mapper.fromOrderedStringArray( values );
         assertCity( city );

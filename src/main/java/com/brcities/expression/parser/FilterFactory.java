@@ -6,6 +6,7 @@ import com.brcities.expression.FilterExpression;
 import com.brcities.expression.addOn.FilterByProperty;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FilterFactory {
 
@@ -15,7 +16,11 @@ public class FilterFactory {
 
     private static Expression createFilterByPropertyExpression(final List<String> params) {
         FilterExpression expression = new FilterExpression();
-        expression.setAddOn( new FilterByProperty( params.get( 0 ), params.get( 1 ), CityFacade.getInstance() ) );
+        expression.setAddOn( new FilterByProperty( params.remove( 0 ), joinRemainingParams(params), CityFacade.getInstance() ) );
         return expression;
+    }
+
+    private static String joinRemainingParams(final List<String> params) {
+        return String.join( " ", params );
     }
 }

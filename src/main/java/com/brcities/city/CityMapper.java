@@ -1,5 +1,9 @@
 package com.brcities.city;
 
+import com.brcities.city.model.City;
+import com.brcities.city.model.MesoRegion;
+import com.brcities.city.model.MicroRegion;
+import com.brcities.city.model.State;
 import com.brcities.mappers.EntityMapper;
 
 import java.util.HashMap;
@@ -30,7 +34,7 @@ public class CityMapper implements EntityMapper<City> {
         City city = new City();
         city.setIbgeId( Long.valueOf( values[ 0 ] ) );
         city.setName( values[ 2 ] );
-        city.setCapital( Boolean.getBoolean( values[ 3 ] ) );
+        city.setCapital( Boolean.valueOf( values[ 3 ] ) );
         city.setLon( Double.valueOf( values[ 4 ] ) );
         city.setLat( Double.valueOf( values[ 5 ] ) );
         city.setAlternativeName( values[ 7 ] );

@@ -27,7 +27,7 @@ public class ExpressionParserTest {
     @Test
     public void ensureCanParseFilterCommand(){
         ExpressionParser parser = ExpressionParser.getInstance();
-        Expression expression = parser.parse("filter name City");
+        Expression expression = parser.parse("filter name city name");
         assertThat( expression, instanceOf( FilterExpression.class ) );
     }
 

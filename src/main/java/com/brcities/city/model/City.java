@@ -1,4 +1,4 @@
-package com.brcities.city;
+package com.brcities.city.model;
 
 import java.text.Normalizer;
 

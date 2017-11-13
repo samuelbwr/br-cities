@@ -11,10 +11,11 @@ import java.nio.file.Paths;
 import static org.junit.Assert.assertNotNull;
 
 public class FileReaderTest {
+    private static final String CITIES_FILE = "small-cidades.csv";
 
     @Test
-    public void ensureCanReadFromFile() throws URISyntaxException, FileNotFoundException {
-        FileReader fileReader = new FileReader( getFilePath( "small-cidades.csv" ) );
+    public void ensureCanReadFromFile() throws URISyntaxException {
+        FileReader fileReader = new FileReader( getFilePath( CITIES_FILE ) );
         BufferedReader reader = fileReader.read();
         assertNotNull( reader );
     }

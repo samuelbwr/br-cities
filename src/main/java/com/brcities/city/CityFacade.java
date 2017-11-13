@@ -1,5 +1,6 @@
 package com.brcities.city;
 
+import com.brcities.city.model.City;
 import com.brcities.facades.EntityFacade;
 
 import java.util.Map;
@@ -28,7 +29,7 @@ public class CityFacade implements EntityFacade {
             cityPropertyEntry( "mesoregion", (city) -> city.getMicroRegion().getMesoRegion().getName() ) )
             .collect( toMap( (e) -> e.getKey(), (e) -> e.getValue() ) ) );
 
-    private static SimpleEntry<String, Function<City, String>> cityPropertyEntry(String key, Function<City, String> value) {
+    private static SimpleEntry<String, Function<City, String>> cityPropertyEntry(final String key, final Function<City, String> value) {
         return new SimpleEntry( key, value );
     }
 

@@ -19,6 +19,8 @@ public class FilterByProperty implements AddOn {
     @Override
     public Stream run(Stream stream) {
         return stream.filter( object -> value.equals( entityFacade
-                .getPropertyAsFunction( property ).orElseThrow( NoSuchPropertyException::new ).apply( object ) ) );
+                .getPropertyAsFunction( property )
+                .orElseThrow( NoSuchPropertyException::new )
+                .apply( object ) ) );
     }
 }
