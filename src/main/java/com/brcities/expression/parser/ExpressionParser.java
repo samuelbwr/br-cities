@@ -39,7 +39,7 @@ public class ExpressionParser {
         List<String> splittedCommand = toList(command.split( " " ));
         final Function commandFunction = FIRST_COMMAND.get( splittedCommand.get( 0 ) );
         if(commandFunction == null)
-            throw new ParseException("Could not parse: command '"+splittedCommand.get( 0 )+"' not found");
+            throw new ParseException("Command '"+splittedCommand.get( 0 )+"' not implemented");
         splittedCommand.remove( 0 );
         return (Expression) commandFunction.apply(splittedCommand);
     }

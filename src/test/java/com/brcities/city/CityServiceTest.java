@@ -1,14 +1,16 @@
 package com.brcities.city;
 
 import com.brcities.city.model.City;
-import com.brcities.expression.parser.ParseException;
+import com.brcities.expression.result.ErrorResult;
 import com.brcities.expression.result.ListResult;
 import com.brcities.expression.result.LongResult;
+import com.brcities.expression.result.Result;
 import org.junit.Test;
 
 import java.net.URISyntaxException;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertThat;
 
 public class CityServiceTest {
@@ -31,14 +33,15 @@ public class CityServiceTest {
     public void ensureCanExecuteFilterCommand() throws URISyntaxException {
         String cityName = "Ariquemes";
         CityService cityService = new CityService( CityStub.createDefaultDataSource() );
-        ListResult<City> result = (ListResult) cityService.runCommand( "filter name "+cityName );
+        ListResult<City> result = (ListResult) cityService.runCommand( "filter name " + cityName );
         assertThat( result.getValue().size(), equalTo( 1 ) );
-        assertThat( result.getValue().get(0).getName(), equalTo( cityName ) );
+        assertThat( result.getValue().get( 0 ).getName(), equalTo( cityName ) );
     }
 
-    @Test(expected = ParseException.class)
+    @Test
     public void ensureCantExecuteUnknownCommand() throws URISyntaxException {
         CityService cityService = new CityService( CityStub.createDefaultDataSource() );
-        cityService.runCommand( "add other name" );
+        Result result = cityService.runCommand( "add other name" );
+        assertThat( result, instanceOf( ErrorResult.class ) );
     }
 }
